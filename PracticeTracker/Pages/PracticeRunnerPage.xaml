@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PracticeTracker.PracticeRunnerPage"
+             Title="Practice Runner">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="14">
+
+            <Label x:Name="StudentNameLabel"
+                   Text="Student"
+                   FontSize="28"
+                   FontAttributes="Bold"
+                   HorizontalOptions="Center" />
+
+            <Label Text="Tap the apple each time you finish one repetition."
+                   FontSize="15"
+                   TextColor="Gray"
+                   HorizontalOptions="Center"
+                   HorizontalTextAlignment="Center"
+                   Margin="0,0,0,10" />
+
+            <Frame>
+                <VerticalStackLayout Spacing="10">
+
+                    <Label Text="Practice Task"
+                           FontSize="20"
+                           FontAttributes="Bold" />
+
+                    <Label Text="Task Name"
+                           FontAttributes="Bold" />
+
+                    <Entry x:Name="TaskNameEntry"
+                           Placeholder="Example: A major scale" />
+
+                    <Label Text="Target Repetitions"
+                           FontAttributes="Bold"
+                           Margin="0,8,0,0" />
+
+                    <Entry x:Name="TargetEntry"
+                           Placeholder="Example: 5"
+                           Keyboard="Numeric" />
+
+                </VerticalStackLayout>
+            </Frame>
+
+            <Frame>
+                <VerticalStackLayout Spacing="12"
+                                     HorizontalOptions="Center">
+
+                    <Label Text="Current Repetitions"
+                           FontSize="18"
+                           FontAttributes="Bold"
+                           HorizontalOptions="Center" />
+
+                    <Label x:Name="CurrentRepsLabel"
+                           Text="0"
+                           FontSize="44"
+                           FontAttributes="Bold"
+                           TextColor="{StaticResource PrimaryColor}"
+                           HorizontalOptions="Center" />
+
+                    <Button Text="🍎"
+                            FontSize="38"
+                            WidthRequest="96"
+                            HeightRequest="96"
+                            CornerRadius="48"
+                            Clicked="OnAddRepetitionClicked" />
+
+                    <Label Text="Tap apple = +1 repetition"
+                           FontSize="13"
+                           TextColor="Gray"
+                           HorizontalOptions="Center" />
+
+                    <Button Text="Undo"
+                            WidthRequest="110"
+                            HeightRequest="42"
+                            BackgroundColor="Gray"
+                            Clicked="OnUndoClicked" />
+
+                </VerticalStackLayout>
+            </Frame>
+
+            <Button Text="Save Today's Practice"
+                    Clicked="OnSavePracticeClicked" />
+
+            <Frame>
+                <VerticalStackLayout Spacing="8">
+
+                    <Label Text="Today Summary"
+                           FontSize="20"
+                           FontAttributes="Bold" />
+
+                    <Label x:Name="TodayTotalLabel"
+                           Text="Today's total repetitions: 0"
+                           FontSize="16" />
+
+                    <Label x:Name="CompleteLabel"
+                           Text=""
+                           FontSize="16"
+                           FontAttributes="Bold"
+                           TextColor="Green" />
+
+                </VerticalStackLayout>
+            </Frame>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

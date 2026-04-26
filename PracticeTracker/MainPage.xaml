@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PracticeTracker.MainPage"
+             Title="Practice Tracker">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="14">
+
+            <Label Text="Practice Tracker"
+                   FontSize="30"
+                   FontAttributes="Bold"
+                   HorizontalOptions="Center" />
+
+            <Label Text="Weekly lesson notes and practice tracking for music students"
+                   FontSize="14"
+                   TextColor="Gray"
+                   HorizontalTextAlignment="Center"
+                   HorizontalOptions="Center"
+                   Margin="0,0,0,10" />
+
+            <Frame>
+                <VerticalStackLayout Spacing="10">
+                    <Label Text="Add Student"
+                           FontSize="20"
+                           FontAttributes="Bold" />
+
+                    <Entry x:Name="StudentNameEntry"
+                           Placeholder="Enter student name" />
+
+                    <Button Text="Add Student"
+                            Clicked="OnAddStudentClicked" />
+                </VerticalStackLayout>
+            </Frame>
+
+            <Label Text="Students"
+                   FontSize="20"
+                   FontAttributes="Bold"
+                   Margin="0,10,0,0" />
+
+            <CollectionView x:Name="StudentsCollectionView"
+                            SelectionMode="None">
+
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame>
+                            <Grid ColumnDefinitions="*,Auto,Auto"
+                                  ColumnSpacing="10">
+
+                                <Label Grid.Column="0"
+                                       Text="{Binding Name}"
+                                       FontSize="18"
+                                       FontAttributes="Bold"
+                                       VerticalOptions="Center" />
+
+                                <Button Grid.Column="1"
+                                        Text="Open"
+                                        WidthRequest="80"
+                                        Clicked="OnOpenStudentClicked"
+                                        CommandParameter="{Binding .}" />
+
+                                <Button Grid.Column="2"
+                                        Text="Delete"
+                                        WidthRequest="85"
+                                        BackgroundColor="DarkRed"
+                                        TextColor="White"
+                                        Clicked="OnDeleteStudentClicked"
+                                        CommandParameter="{Binding .}" />
+
+                            </Grid>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+
+            </CollectionView>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
